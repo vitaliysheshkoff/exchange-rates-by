@@ -198,15 +198,15 @@ public class ExchangeRatesTelegramBot extends TelegramWebhookBot {
 
                         // emoji
                         if(i < 5)
-                            result.append("💲");
-                        else if(i > 5 && i< 10)
-                            result.append("€");
-                        else if(i > 10 && i< 15)
-                            result.append("₽");
-                        else if(i > 15 && i< 20)
-                            result.append("zł");
+                            result.append("\uD83C\uDDFA\uD83C\uDDF8");
+                        else if(i< 10)
+                            result.append("\uD83C\uDDEA\uD83C\uDDFA");
+                        else if(i< 15)
+                            result.append("\uD83C\uDDF7\uD83C\uDDFA");
+                        else if(i< 20)
+                            result.append("\uD83C\uDDF5\uD83C\uDDF1");
                         else
-                            result.append("₴");
+                            result.append("\uD83C\uDDFA\uD83C\uDDE6");
 
                                 result.append("\n");
                     } else {
