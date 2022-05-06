@@ -194,8 +194,21 @@ public class ExchangeRatesTelegramBot extends TelegramWebhookBot {
                         result.append(tds.eq(j).text())
                                 .append(" ");
                     } else if (j == i + 1) {
-                        result.append(tds.eq(j).text())
-                                .append("\n");
+                        result.append(tds.eq(j).text());
+
+                        // emoji
+                        if(i < 5)
+                            result.append("💲");
+                        else if(i > 5 && i< 10)
+                            result.append("€");
+                        else if(i > 10 && i< 15)
+                            result.append("₽");
+                        else if(i > 15 && i< 20)
+                            result.append("zł");
+                        else
+                            result.append("₴");
+
+                                result.append("\n");
                     } else {
                         result.append(columnsName.get((j % 5) - 2))
                                 .append(": ");
