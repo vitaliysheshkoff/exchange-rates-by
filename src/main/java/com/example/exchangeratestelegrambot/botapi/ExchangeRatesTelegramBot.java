@@ -331,10 +331,12 @@ public class ExchangeRatesTelegramBot extends TelegramWebhookBot {
             inputStream.close();
             // Convert HTML file to PDF
             doc.save(OUTPUT_PDF_FILE);
+
+            return new File(OUTPUT_PDF_FILE);
+
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-        return new File(OUTPUT_PDF_FILE);
     }
 }
