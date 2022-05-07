@@ -221,7 +221,7 @@ public class ExchangeRatesTelegramBot extends TelegramWebhookBot {
             }
 
             // adding source link
-            result.append("\n" + "source link: " + URL);
+            result.append("source link: " + URL);
 
             return result.toString();
 
