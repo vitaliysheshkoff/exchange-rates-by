@@ -125,6 +125,7 @@ public class ExchangeRatesTelegramBot extends TelegramWebhookBot {
                             execute(SendMessage.builder()
                                     .chatId(String.valueOf(message.getChatId()))
                                     .text(getCurrencyText())
+                                    .disableWebPagePreview(true)
                                     .replyMarkup(replyKeyboardMarkup)
                                     .build());
                         }
@@ -219,6 +220,9 @@ public class ExchangeRatesTelegramBot extends TelegramWebhookBot {
                 result.append("\n\n");
             }
 
+            // adding source link
+            result.append("\n\n" + "source link: " + URL);
+
             return result.toString();
 
         } catch (Exception e) {
@@ -246,8 +250,6 @@ public class ExchangeRatesTelegramBot extends TelegramWebhookBot {
                     .userAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.21 (KHTML, like Gecko) Chrome/19.0.1042.0 Safari/535.21")
                     .referrer("https://www.google.com")
                     .get();
-
-
         }
 
         System.out.println("site successfully parsed");
@@ -304,8 +306,15 @@ public class ExchangeRatesTelegramBot extends TelegramWebhookBot {
             buf.append("</tr>");
         }
 
-        buf.append("</table>" +
-                "</body>" +
+        buf.append("</table>");
+
+        // adding source link
+        buf.append("<p style='font-family: \"Comic Sans MS\", bold, sans-serif; font-size: 20px;'>\n" +
+                "source link:\n" +
+                "<a href=" + URL + ">" + URL + "</a>\n" +
+                "</p>");
+
+        buf.append("</body>" +
                 "</html>");
 
         return buf.toString();
